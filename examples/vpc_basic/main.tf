@@ -9,7 +9,7 @@ provider "huaweicloud" {
 module "example" {
   source ="../.."
 
-  // VPC
+  // VPC2
   name = "testVPC"
   cidr = "10.0.0.0/16"
 
