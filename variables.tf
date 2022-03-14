@@ -30,7 +30,7 @@ variable "sk" {
 
 variable "name" {
   description = ""
-  default     = "terraform_vpc2"
+  default     = "terraform_vpc"
 }
 
 variable "cidr" {
