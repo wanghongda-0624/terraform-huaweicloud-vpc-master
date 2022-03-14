@@ -27,7 +27,7 @@ variable "subnets" {
 
 variable "region" {
   description = ""
-  default     = ""
+  default     = "cn-east-2"
 }
 
 variable "ak" {
