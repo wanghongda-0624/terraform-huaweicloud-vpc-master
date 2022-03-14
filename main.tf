@@ -30,11 +30,9 @@ module "vpc" {
   sk=var.sk
   bucket = var.bucket
   key    = var.key
-  region = var.region
   endpoint = var.endpoint 
 }
 
-Configure the HuaweiCloud Provider
 
 
 
