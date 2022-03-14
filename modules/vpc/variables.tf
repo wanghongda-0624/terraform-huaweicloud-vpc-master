@@ -1,7 +1,7 @@
-# variable "vpc_id" {
-#   description = "The ID of the VPC"
-#   default     = ""
-# }
+variable "vpc_id" {
+  description = "The ID of the VPC"
+  default     = ""
+}
 
 # variable "name" {
 #   description = "The name of the VPC"
@@ -13,24 +13,36 @@
 #   default     = ""
 # }
 
+variable "subnets" {
+  description = "List of subnets in the VPC"
+  type = list(object({
+    name          = string
+    cidr          = string
+    gateway_ip    = string
+    primary_dns   = string
+    secondary_dns = string
+  }))
+  default = []
+}
+
 variable "region" {
   description = ""
-  default     = "cn-east-2"
+  default     = ""
 }
 
 variable "ak" {
   description = ""
-  default     = "4P7KNCCYYSSBFGEMF13E"
+  default     = ""
 }
 
 variable "sk" {
   description = ""
-  default     = "mAD8G9qhuETORJ61OzqLMJMUNBFINwe04mcTGlkv"
+  default     = ""
 }
 
 variable "name" {
   description = ""
-  default     = "terraform_vpc2"
+  default     = ""
 }
 
 variable "cidr" {
@@ -51,22 +63,4 @@ variable "key" {
 variable "endpoint" {
   description = ""
   default     = "obs.cn-east-2.myhuaweicloud.com"
-}
-
-variable "backend"{
-  description = ""
-  default     = "s3"
-}
-
-
-variable "subnets" {
-  description = "List of subnets in the VPC"
-  type = list(object({
-    name          = string
-    cidr          = string
-    gateway_ip    = string
-    primary_dns   = string
-    secondary_dns = string
-  }))
-  default = []
 }
