@@ -18,21 +18,48 @@
 # }
 
 #Configure the HuaweiCloud Provider
+# provider "huaweicloud" {
+#      region = var.region
+#      access_key = var.ak
+#      secret_key = var.sk
+#   }
+# module "vpc" {
+#   source = "./modules/vpc"
+#   name = var.name
+#   ak=var.ak
+#   sk=var.sk
+#   bucket = var.bucket
+#   key    = var.key
+#   region = var.region
+#   endpoint = var.endpoint 
+# }
+
+# Configure the HuaweiCloud Provider
 provider "huaweicloud" {
-     region = var.region
-     access_key = var.ak
-     secret_key = var.sk
+  region     = "cn-east-2"
+  access_key = "4P7KNCCYYSSBFGEMF13E"
+  secret_key = "mAD8G9qhuETORJ61OzqLMJMUNBFINwe04mcTGlkv"
+}
+
+# Create a VPC
+resource "huaweicloud_vpc" "example" {
+  name = "terraform_vpc"
+  cidr = "192.168.0.0/17"
+}
+
+terraform {
+  backend "s3" {
+    access_key                  = "4P7KNCCYYSSBFGEMF13E"
+    secret_key                  = "mAD8G9qhuETORJ61OzqLMJMUNBFINwe04mcTGlkv"
+    bucket                      = "terraform-state-obs"
+    key                         = "myproject/terraform.tfstate"
+    region                      = "cn-east-2"
+    endpoint                    = "obs.cn-east-2.myhuaweicloud.com"
+    skip_region_validation      = true
+    skip_metadata_api_check     = true
+    skip_credentials_validation = true
   }
-module "vpc" {
-  source = "./modules/vpc"
-  name = var.name
-  ak=var.ak
-  sk=var.sk
-  #region = var.region
-  bucket = var.bucket
-  key    = var.key
-  region = var.region
-  endpoint = var.endpoint 
+
 }
 
 
