@@ -28,7 +28,7 @@ module "vpc" {
   name = var.name
   ak=var.ak
   sk=var.sk
-  region = var.region
+  #region = var.region
   bucket = var.bucket
   key    = var.key
   region = var.region
