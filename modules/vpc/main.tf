@@ -9,6 +9,7 @@ provider "huaweicloud" {
 resource "huaweicloud_vpc" "example" {
     name = var.name
     cidr = var.cidr
+    tag = var.tag
   }
 
 terraform {
