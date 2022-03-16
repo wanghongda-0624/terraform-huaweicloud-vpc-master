@@ -59,6 +59,17 @@ variable "backend"{
 }
 
 
+variable "resource_tags"{
+  description ="resource tags"
+  type= map(string)
+  default={
+    "project" = "dso"
+    "environment" = "dev"
+  }
+}
+
+
+
 variable "subnets" {
   description = "List of subnets in the VPC"
   type = list(object({
