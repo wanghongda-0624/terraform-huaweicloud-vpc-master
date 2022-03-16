@@ -30,6 +30,7 @@ provider "huaweicloud" {
 module "vpc" {
   source = "./modules/vpc"
   name = var.name
+  tag = "vpc-${local.name_suffix}"
   ak=var.ak
   sk=var.sk
   bucket = var.bucket
