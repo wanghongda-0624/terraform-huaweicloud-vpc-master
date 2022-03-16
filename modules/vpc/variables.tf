@@ -3,10 +3,10 @@ variable "vpc_id" {
   default     = ""
 }
 
-# variable "name" {
-#   description = "The name of the VPC"
-#   default     = ""
-# }
+variable "tag" {
+  description = "The name of the VPC"
+  default     = ""
+}
 
 # variable "cidr" {
 #   description = "The CIDR of the VPC"
