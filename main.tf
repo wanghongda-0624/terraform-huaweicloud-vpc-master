@@ -17,6 +17,10 @@
 #   vpc_id            = var.vpc_id == "" ? join("", huaweicloud_vpc_v1.this.*.id) : var.vpc_id
 # }
 
+locals {
+    name_suffix = "${var.resource_tags["project"]}-${var.resource_tags["environment"]}" 
+}
+
 #Configure the HuaweiCloud Provider
 provider "huaweicloud" {
      region = var.region
